@@ -18,7 +18,7 @@ public class ParametrizedTests extends TestBase {
     @ParameterizedTest(name = "Язык {0} ")
     @EnumSource(Language.class)
     @DisplayName("Тест языков через EnumSource")
-    void GazpromSiteShouldDisplayCorrectText(Language language) {
+    void gazpromSiteShouldDisplayCorrectTextTests(Language language) {
         open("https://www.gazprom.ru/");
         $(".language").$(byText(language.name())).click();
         $("menu").shouldHave(text(language.description));
@@ -35,7 +35,7 @@ public class ParametrizedTests extends TestBase {
     })
     @ParameterizedTest(name = "Проверка пароля {0} ")
     @DisplayName("Проверка неверных паролей через ValueSource")
-    void NegativeTestPasswords(String searchQuery) {
+    void negativeTestPasswordsTests(String searchQuery) {
         $("[name=username]").setValue("Admin");
         $("[name=password]").setValue(searchQuery).pressEnter();
         $(".oxd-alert-content-text").shouldHave(text("Invalid credentials"));
@@ -49,7 +49,7 @@ public class ParametrizedTests extends TestBase {
     })
     @ParameterizedTest(name = "Проверка логина {0} ")
     @DisplayName("Проверка неверных логинов через CSVSource")
-    void NegativeTestLogins(String searchQuery) {
+    void negativeTestLogins(String searchQuery) {
         $("[name=username]").setValue(searchQuery);
         $("[name=password]").setValue("admin123").pressEnter();
         $(".oxd-alert-content-text").shouldHave(text("Invalid credentials"));
