@@ -10,6 +10,7 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
     }
 
+
     @AfterEach
     void afterEach() {
         Selenide.closeWebDriver();

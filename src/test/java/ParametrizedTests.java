@@ -30,6 +30,7 @@ public class ParametrizedTests extends TestBase {
         open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
     }
 
+
     @ValueSource(strings = {
             "fghfgh", "fdghdfgerw", "12234123"
     })
@@ -40,6 +41,7 @@ public class ParametrizedTests extends TestBase {
         $("[name=password]").setValue(searchQuery).pressEnter();
         $(".oxd-alert-content-text").shouldHave(text("Invalid credentials"));
     }
+
 
 
     @CsvSource(value = {
