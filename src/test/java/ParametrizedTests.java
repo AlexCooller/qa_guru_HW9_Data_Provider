@@ -43,7 +43,6 @@ public class ParametrizedTests extends TestBase {
     }
 
 
-
     @CsvSource(value = {
             "Master",
             "Root",
@@ -56,8 +55,6 @@ public class ParametrizedTests extends TestBase {
         $("[name=password]").setValue("admin123").pressEnter();
         $(".oxd-alert-content-text").shouldHave(text("Invalid credentials"));
     }
-
-
 
 
 }
